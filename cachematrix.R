@@ -38,8 +38,14 @@ cacheSolve <- function(x, ...) {
 			message("getting cached data")
 			return(m)
 	}
+	
+	#get matrix and solve the inverse 
 	data <- x$get()
 	m <- solve(data, ...)
+	
+	#save inverse matrix as cache
 	x$setinverse(m)
+	
+	#return solved inverse matrix
 	m		
 }
